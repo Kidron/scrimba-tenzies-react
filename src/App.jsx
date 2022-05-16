@@ -9,13 +9,11 @@ const [dice, setDice] = useState(allNewDice);
 const [tenzies, setTenzies] = useState(false);
 
 useEffect(() => {
-  console.log("Dice state changed");
   const allDiceHeld = dice.every(die => die.isHeld);
   const firstDieValue = dice[0].value;
   const allSameNumber = dice.every(die => die.value === firstDieValue);
   if(allDiceHeld && allSameNumber) {
     setTenzies(true);
-    console.log("You win!");
   }
 }, [dice])
 
